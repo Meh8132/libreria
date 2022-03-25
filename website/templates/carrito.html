@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} Carrito {% endblock %}
+
+{% block body %} 
+
+<div class="container text-center">
+    <h1>Carrito de compras</h1>
+</div>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <h2 >Lista de productos</h2>
+            <div class="card" style="margin: 3% 25%;">
+                <img class="card-img-top" src="{{url_for('static', filename='Recursos/Placeholder.png')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">$100.000</h5>
+                    <p class="card-text">Descripcion del producto</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Informacion adicional</small>
+                </div>
+            </div> 
+            <div class="card" style="margin: 3% 25%;">
+                <img class="card-img-top" src="{{url_for('static', filename='Recursos/Placeholder.png')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">$100.000</h5>
+                    <p class="card-text">Descripcion del producto</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Informacion adicional</small>
+                </div>
+            </div> 
+            <button type="submit" class="btn btn-success bg-green my-2 my-sm-0">Pagar</button>
+        </div>       
+        <div class="col-12 col-sm-6">
+            <h2>Metodos de pago</h2>
+            <div class="boton_añadir">
+                <img src="{{url_for('static', filename='Recursos/Placeholder.png')}}" href="#" height="75" width="75">
+            </div>
+            <h2>Direcciones</h2>
+            <div class="boton_añadir">
+                <img src="{{url_for('static', filename='Recursos/Placeholder.png')}}" href="#" height="75" width="75">
+            </div>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}

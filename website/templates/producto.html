@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %} Producto {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <img class="product-image img-fluid" src="{{url_for('static', filename='Recursos/Placeholder.png')}}" alt="Placeholder">
+        </div>
+        <div class="col-sm-7">
+            <h1>Articulo</h1>
+            <h2>$100.000</h2><br>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique fermentum vulputate. Proin nec nulla nec sem cursus volutpat nec eget nulla. Aenean lacus nulla, tempus sit amet convallis id, viverra ac eros. Sed nec dolor risus. Quisque in laoreet tortor. Nam ac pretium turpis, sed mattis nisl. Donec ac sapien lorem. Sed in nibh et odio sagittis rutrum eu non risus. Aliquam quis turpis in mi vestibulum pulvinar. Donec vitae lacus a purus ullamcorper sodales. Sed vel finibus velit. Pellentesque sed velit nec risus sagittis euismod. Aliquam sodales risus consequat massa dignissim porttitor. Morbi eleifend semper scelerisque. </h4>
+            <button type="submit" class="btn btn-success bg-green my-5 my-sm-2">Agregar al carrito</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

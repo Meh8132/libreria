@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+
+{% block body %}
+<div class="container-slider my-5">
+    <div class="slider" id="slider">
+        <div class="slider__section">
+            <img src="{{url_for('static', filename='Recursos/Slider-placeholder.jpg')}}" alt="" class="slider__img">
+        </div>
+        <div class="slider__section">
+            <img src="{{url_for('static', filename='Recursos/Slider-placeholder.jpg')}}" alt="" class="slider__img">
+        </div>
+        <div class="slider__section">
+            <img src="{{url_for('static', filename='Recursos/Slider-placeholder.jpg')}}" alt="" class="slider__img">
+        </div>
+        <div class="slider__section">
+            <img src="{{url_for('static', filename='Recursos/Slider-placeholder.jpg')}}" alt="" class="slider__img">
+        </div>
+    </div>
+    <div class="slider__btn slider__btn--right" id="btn-right">&#62;</div>
+    <div class="slider__btn slider__btn--left" id="btn-left">&#60;</div>
+</div>
+<div class="card-deck" style="margin: 3% 15%;">
+    <a class="card" href="/producto">
+        <img class="card-img-top" src="{{url_for('static', filename='Recursos/Placeholder.png')}}" alt="Imagen producto">
+        <div class="card-body">
+            <h5 class="card-title">$100.000</h5>
+            <p class="card-text">Descripcion del producto</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Informacion adicional</small>
+        </div>
+    </a>
+    <a class="card" href="/producto">
+        <img class="card-img-top" src="{{url_for('static', filename='Recursos/Placeholder.png')}}" alt="Imagen producto">
+        <div class="card-body">
+            <h5 class="card-title">$100.000</h5>
+            <p class="card-text">Descripcion del producto</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Informacion adicional</small>
+        </div>
+    </a>
+    <a class="card" href="/producto">
+        <img class="card-img-top" src="{{url_for('static', filename='Recursos/Placeholder.png')}}" alt="Imagen producto">
+        <div class="card-body">
+            <h5 class="card-title">$100.000</h5>
+            <p class="card-text">Descripcion del producto</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Informacion adicional</small>
+        </div>
+    </a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/slider.js')}}"></script>
+{% endblock %}

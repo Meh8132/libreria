@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block body %}
+
+<div class="container text-center">
+    <form class="formulario needs-validation" method="POST" novalidate>
+        <h1 class="title_login mb-5">Iniciar Sesion</h1>
+        <div class="input-contenedor">
+            <label for="email">Correo electronico</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Introduzca su correo" required>
+            <div class="invalid-feedback">Introduzca un correo valido</div>
+        </div>
+        <div class="input-contenedor mb-5">
+            <label for="password">Contraseña</label>
+            <br>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            <div class="invalid-feedback">Introduzca su contraseña</div>
+        </div>
+        <button type="submit" class="btn btn-success bg-green my-5">Iniciar sesion</button>
+      <p class="mt-2">¿No tienes una cuenta? <a class="link" href="/sign-up">Registrarse</a></p>
+    </form>  
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/validation.js')}}"></script>
+{% endblock %}
