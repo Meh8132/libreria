@@ -11,7 +11,7 @@
   <title>{% block title %}Base{% endblock %}</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="padding: 0% 15%;">
+  <nav class="navbar navbar-expand-lg navbar-light mb-0" style="padding: 0% 15%;">
     <a class="navbar-brand" href="/" id="home"><img class="logo" src="{{url_for('static', filename='Recursos/Logo.png')}}" alt="Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,9 +43,30 @@
     </div>
   </nav>
 
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        {% if category == 'error' %}
+          <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% else %}
+          <div class="alert alert-success alert-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
   {% block body %} {% endblock %}
 
-  <footer class="bg-green-footer py-4 mt-5">
+  <footer class="bg-green-footer pt-3 pb-2 mt-5">
     <div class="container">
       <nav class="row">
         <ul class="col list-unstyled justify-content-center ">
@@ -67,11 +88,11 @@
             Direccion: Av. Cra. 7 #40b-53 (Ofcina)
           </li>
         </ul>
-        <ul class="col list-unstyled">
+        <ul class="col list-unstyled mt-3">
           <li class="d-flex justify-content-between align-middle">
             <i class="fa-brands fa-facebook fa-3x"></i>
             <i class="fa-brands fa-instagram fa-3x"></i>
-            <a href="https://github.com/Meh8132/Proyecto" style="color: white;">
+            <a href="https://github.com/Meh8132/libreria" style="color: white;">
               <i class="fa-brands fa-github fa-3x"></i>
             </a>
           </li>
