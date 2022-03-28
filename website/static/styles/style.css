@@ -10,6 +10,7 @@
     font-family: "Open Sans" sans-serif !important;
 }
 
+
 .navbar{
     background-color: var(--orange-main);
     color: rgb(255, 255, 255);
@@ -148,8 +149,5 @@ input[type="text"],input[type="password"]{
     background-color: #08805c;
     color: whitesmoke;
 }
-
-
-
 
 

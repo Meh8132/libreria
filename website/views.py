@@ -13,3 +13,7 @@ def carrito():
 @views.route('/producto')
 def producto():
     return render_template("producto.html")
+
+@views.route('/usuario')
+def usuario():
+    return render_template("usuario.html")
