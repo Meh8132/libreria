@@ -25,7 +25,7 @@
     font-size: 20px;
 }
 .logo{
-    height: 120px;    
+    height: 60px;    
 }
 
 .icons{
@@ -150,4 +150,14 @@ input[type="text"],input[type="password"]{
     color: whitesmoke;
 }
 
-
+#user{
+    height: 64vh !important;
+}
+#login{
+    height: 69vh !important;
+}
+#hist{
+    overflow-y: scroll !important;
+    overflow-x: auto !important;
+    max-height: 40vh !important;
+}
