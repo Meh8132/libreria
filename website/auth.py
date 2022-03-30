@@ -41,6 +41,7 @@ def sign_up():
         email2 = request.form.get('email2')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        id_type = request.form.get('id-type')
         id_num = request.form.get('id-num')
         address = request.form.get('address')
 
@@ -66,7 +67,7 @@ def sign_up():
         elif len(address) < 8:
             flash('La direccion debe tener mas de 8 caracteres', category='error')
         else:
-            new_user = User(id=id_num, email=email1, firstname=firstname, lastname=lastname,  password=generate_password_hash(password1, method='sha256'), address=address)
+            new_user = User(id=id_num, id_type=id_type, email=email1, firstname=firstname, lastname=lastname,  password=generate_password_hash(password1, method='sha256'), address=address)
             db.session.add(new_user)
             db.session.commit()
             flash('Cuenta creada satisfactoriamente', category='success')
