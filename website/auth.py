@@ -3,6 +3,7 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
+from . import views
 
 auth = Blueprint('auth', __name__)  
 
@@ -24,10 +25,6 @@ def login():
             flash('Correo no registrado', category='error')
     return render_template("login.html")
 
-@auth.route('/account')
-@login_required
-def account():
-    return 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
@@ -70,3 +67,9 @@ def sign_up():
             return redirect(url_for('auth.login'))
 
     return render_template("sign-up.html")
+
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user
+    return redirect(url_for(views.home))

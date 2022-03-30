@@ -151,13 +151,10 @@ input[type="text"],input[type="password"]{
 }
 
 #user{
-    height: 64vh !important;
-}
-#login{
-    height: 69vh !important;
+    max-height: 500px !important;
 }
 #hist{
     overflow-y: scroll !important;
     overflow-x: auto !important;
-    max-height: 40vh !important;
+    max-height: 50vh !important;
 }
