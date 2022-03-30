@@ -9,6 +9,9 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    user = current_user
+    if user.is_authenticated:
+        return redirect(url_for('views.usuario'))
     if request.method ==  'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -23,11 +26,14 @@ def login():
                 flash('Contraseña incorrecta', category='error')
         else:
             flash('Correo no registrado', category='error')
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
+    user=current_user
+    if user.is_authenticated:
+        return redirect(url_for('views.usuario'))
     if request.method == 'POST':
         firstname = request.form.get('firstname')
         lastname = request.form.get('lastname')
@@ -66,10 +72,10 @@ def sign_up():
             flash('Cuenta creada satisfactoriamente', category='success')
             return redirect(url_for('auth.login'))
 
-    return render_template("sign-up.html")
+    return render_template("sign-up.html", user=current_user)
 
 @auth.route('/logout')
 @login_required
 def logout():
-    logout_user
-    return redirect(url_for(views.home))
+    logout_user()
+    return redirect(url_for("views.home"))
