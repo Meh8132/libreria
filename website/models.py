@@ -3,6 +3,10 @@ from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func 
 
+#Generacion de modelos de la base de datos
+
+#Modelo de usario
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     id_type = db.Column(db.String(3))
@@ -13,6 +17,8 @@ class User(db.Model, UserMixin):
     address = db.Column(db.String(80))
     orders = db.relationship('Order')
 
+#Modelo de producto
+
 class Product(db.Model):
     id_prod = db.Column(db.Integer, primary_key=True)
     prod_name = db.Column(db.String(20))
@@ -21,6 +27,8 @@ class Product(db.Model):
     desc = db.Column(db.String(100))
     cat_prod = db.Column(db.Integer, db.ForeignKey('category.id_cat'))
     orders = db.relationship('Order_prod')
+
+#Modelo de categoria
 
 class Category(db.Model):
     id_cat = db.Column(db.Integer, primary_key=True)
