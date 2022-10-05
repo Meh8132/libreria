@@ -7,6 +7,8 @@ from . import views
 
 auth = Blueprint('auth', __name__)  
 
+#LOGIN DE USUARIO
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     user = current_user
@@ -28,6 +30,7 @@ def login():
             flash('Correo no registrado', category='error')
     return render_template("login.html", user=current_user)
 
+#REGISTRO DE USUARIO
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
@@ -47,6 +50,8 @@ def sign_up():
 
         user_val = User.query.filter_by(id=id_num).first()
         email_val = User.query.filter_by(email=email1).first()
+
+        #VERIFICACION FORMULARIO (CONDICIONES)
 
         if user_val:
             flash('Ya existe un usuario con ese numero de identificacion', category='error')
@@ -74,6 +79,8 @@ def sign_up():
             return redirect(url_for('auth.login'))
 
     return render_template("sign-up.html", user=current_user)
+
+#SALIR DE SESION
 
 @auth.route('/logout')
 @login_required

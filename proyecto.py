@@ -19,6 +19,8 @@ app.secret_key = "mysecretkey"
 def Index():
     return render_template('index.html')
 
+
+#AGREGAR USUARIO
 @app.route('/add_user', methods=['POST'])
 def add_user():
     if request.method == 'POST':
@@ -32,6 +34,8 @@ def add_user():
         flash('User Added successfully')
         return redirect(url_for('/html/login.html'))
 
+
+#EDITAR USUARIO
 @app.route('/edit/<username>', methods = ['POST', 'GET'])
 def get_contact(username):
     cur = mysql.connection.cursor()
@@ -41,6 +45,7 @@ def get_contact(username):
     print(data[0])
     return render_template('index.html', user = data[0])
 
+#ACTUALIZAR USUARIO
 @app.route('/update/<id>', methods=['POST'])
 def update_contact(id):
     if request.method == 'POST':
@@ -61,6 +66,8 @@ def update_contact(id):
         mysql.connection.commit()
         return redirect(url_for('Index.html'))
 
+
+#ELIMINAR USUARIO
 @app.route('/delete/<string:username>', methods = ['POST','GET'])
 def delete_contact(username):
     cur = mysql.connection.cursor()
